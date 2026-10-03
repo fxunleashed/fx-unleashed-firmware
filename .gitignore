@@ -1,0 +1,6 @@
+# Never in this repository: Simagic's firmware, patched or not, and anything decrypted from it
+*.sfu
+*.tft
+*.bin
+*.hex
+__pycache__/

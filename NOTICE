@@ -1,0 +1,9 @@
+FX Unleashed wheel app patch
+
+This project contains no Simagic software and no Simagic firmware, patched or not. A patch file holds only the
+differences made by our own change and bytes of our own code; applying it needs the user's own copy of Simagic's
+original file. Simagic's firmware and the encryption that protects it are never distributed here.
+
+FX Unleashed is an independent community project. It is not affiliated with, endorsed by or supported by Simagic.
+Simagic and FX Pro are trademarks of their owner, used only to say which hardware this works with. The software is
+provided "as is", without warranty of any kind (GPL-3.0 sections 15 and 16). Use it at your own risk.
