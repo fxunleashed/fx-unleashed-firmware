@@ -1,42 +1,45 @@
-# FX Unleashed: wheel app patch for the Simagic FX Pro
+# FX Unleashed: wheel app for the Simagic FX Pro
 
 > **FX Unleashed is an independent community project.** It is not affiliated with, endorsed by or supported by
 > Simagic. Simagic and FX Pro are trademarks of their owner, used only to say which hardware this works with. The
 > software is provided "as is", without warranty of any kind. Use it at your own risk.
 
 Unleashed mode of the [FX Unleashed SimHub plugin](https://github.com/fxunleashed/fx-unleashed) needs a modified
-version of the FX Pro's own wheel app (lights, screen, buttons, USB). This repository holds that change, packaged so
-that **nothing of Simagic's is in it**.
+version of the FX Pro's own wheel app (lights, screen, buttons, USB). This repository publishes it.
 
 **Read [docs/firmware-warning.md](docs/firmware-warning.md) before you do anything here.** You change your wheel's own
 program. It is at your own risk, and going back to Simagic's original is always possible
 ([docs/back-to-stock.md](docs/back-to-stock.md)).
 
+## Get it
+
+| | |
+|---|---|
+| **[Releases](https://github.com/fxunleashed/fx-unleashed-firmware/releases): `FXUnleashed-wheelapp-build9.sfu`** | The wheel app, build 9 (includes builds 4 to 8): 96,272 bytes, SHA-256 `85e7110ba368495120c7e84d210c194d5e9eec9eaceb3f8f7c148f020fe0f458`. **It is Simagic's wheel app 1.3.11 with our changes**, so it is Simagic's software, not covered by our licence, and shared without Simagic's involvement. It may be removed at any time. |
+| `patches/build9.fxpatch.json` + `tools/apply-patch.ps1` | The same file, made on your PC from **your own copy** of Simagic's wheel app (the one in SimPro's firmware folder), byte for byte. For those who'd rather not download a modified vendor file. The patch holds only our changes: a few bytes of differences and about 1 KB of our own code. |
+
+Either way [docs/install.md](docs/install.md) walks through it: check the file, put it where SimPro looks for it, let SimPro
+install it, put Simagic's original back.
+
 ## What is here, and what is not
 
 | Here | |
 |---|---|
-| `patches/build9.fxpatch.json` | The change: a few bytes of differences and about 1 KB of our own code, with the checksums of the file it applies to and of the file it makes. |
-| `tools/apply-patch.ps1` | Applies the patch to **your own copy** of Simagic's wheel app (the one in SimPro's firmware folder), checks everything, and writes the patched file somewhere new. Never changes SimPro's files. |
-| `tools/make_patchfile.py` | How a patch file is made (maintainers). Checks its own work and that no stock bytes leak into the patch. |
+| The release | Build 9 of the wheel app, with its checksum. |
+| `patches/` and `tools/` | The patch file and the tool that applies it (`apply-patch.ps1`), and how a patch file is made (`make_patchfile.py`) with its tests. |
 | `docs/` | The guide, going back to stock, what each build changes, how it was checked. |
 
-**Not here, and never will be:** Simagic's firmware (original or patched), the key that protects it, or anything
-decrypted from it. A patch file cannot make firmware by itself and the tools cannot decrypt anything.
-
-## In short
-
-1. Have SimPro Manager 3 installed: Simagic's original wheel app sits in its firmware folder (`%LOCALAPPDATA%\SIMAGIC\Simpro3\firmware\wheel\fx_pro\`).
-2. `powershell -ExecutionPolicy Bypass -File tools\apply-patch.ps1 -VerifyOnly` checks your copy and the patch and writes nothing.
-3. Follow [docs/install.md](docs/install.md): the same command with `-IUnderstandTheRisks` writes the patched file, and the guide walks through installing it with SimPro and putting Simagic's original back.
+**Not here, and never will be:** the key that protects Simagic's firmware, any tool that decrypts it, anything decrypted
+from it, or Simagic's original files. The firmware can be installed without any of that.
 
 ## Builds
 
-The patch is **build 9** and includes builds 4 to 8. What each does: [docs/builds.md](docs/builds.md). How it was
-checked: [docs/verification.md](docs/verification.md).
+Build 9 includes builds 4 to 8. What each does: [docs/builds.md](docs/builds.md). How it was checked:
+[docs/verification.md](docs/verification.md).
 
 ## Licence
 
-[GPL-3.0](LICENSE): no warranty, no liability (sections 15 and 16). See [NOTICE](NOTICE). Issues and questions:
-[fx-unleashed issues](https://github.com/fxunleashed/fx-unleashed/issues). If something here shouldn't be public,
+Our code (the tools, the patch file, the documentation) is [GPL-3.0](LICENSE): no warranty, no liability (sections 15 and
+16). The release file is Simagic's software with our changes and is **not** covered by it. See [NOTICE](NOTICE). Issues and
+questions: [fx-unleashed issues](https://github.com/fxunleashed/fx-unleashed/issues). If something here shouldn't be public,
 please say so there or through GitHub's private reporting on that repository.

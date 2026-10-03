@@ -1,5 +1,8 @@
 # How it is checked
 
+**The release file.** `FXUnleashed-wheelapp-build9.sfu` is exactly the file the patch below makes (same size, same SHA-256), so downloading it
+and making it from your own copy give the same bytes.
+
 **What the patch file makes.** Applying `patches/build9.fxpatch.json` to Simagic's original wheel app (SHA-256
 `16dd09cf...b6cf`, 95,232 bytes) gives a file of 96,272 bytes with SHA-256
 `85e7110ba368495120c7e84d210c194d5e9eec9eaceb3f8f7c148f020fe0f458`. That is byte for byte the file that has been running
