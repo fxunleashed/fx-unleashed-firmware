@@ -35,7 +35,7 @@ and a number.
   ([back-to-stock.md](back-to-stock.md)) and tell us what you saw.
 - SimPro doesn't start at all: that is a separate SimPro launcher problem. Starting
   `C:\Program Files (x86)\SIMAGIC\Simpro3\bin\simpro3.exe` directly worked for us.
-- Anything else: [open an issue](https://github.com/fxunleashed/fx-unleashed/issues) with what you did and saw.
+- Anything else: ask in the [Discord](https://discord.gg/P9Rz6fXrRc), or [open an issue](https://github.com/fxunleashed/fx-unleashed/issues) with what you did and saw.
 
 ---
 
