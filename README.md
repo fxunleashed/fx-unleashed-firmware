@@ -15,7 +15,8 @@ program. It is at your own risk, and going back to Simagic's original is always 
 
 **[Download the newest wheel app](https://github.com/fxunleashed/fx-unleashed-firmware/releases/latest)**: one small file,
 `FXUnleashed-wheelapp-build9.sfu` (build 9, which includes builds 4 to 8). Then follow the simple steps in
-[docs/install.md](docs/install.md), also at [fxunleashed.com/start](https://fxunleashed.com/start/#1-install-the-wheel-app).
+[docs/install.md](docs/install.md). The full guide, which goes on with the plugin and the screen's RAM patch (picture memory, optional but
+highly recommended), is at [fxunleashed.com/start](https://fxunleashed.com/start/).
 **It is Simagic's wheel app 1.3.11 with our changes**, so it is Simagic's software, not covered by our licence, and shared without
 Simagic's involvement. It may be removed at any time.
 

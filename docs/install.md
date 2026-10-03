@@ -29,6 +29,12 @@ The same steps are on the website, next to the rest of the setup: [fxunleashed.c
 **You should see:** the wheel restarts and works as before. In SimHub, the FX Unleashed plugin's Wheel tab says "patch build"
 and a number.
 
+## Then: the plugin and the screen's RAM patch
+
+The wheel app is step 1 of 3. **Step 2** installs the SimHub plugin, and **step 3** is the screen's RAM patch (picture memory): optional,
+but highly recommended, because dashes then appear at once and in full colour. The plugin installs it for you and walks you through it.
+Both are in the same guide, start to finish: [fxunleashed.com/start](https://fxunleashed.com/start/).
+
 ## If something goes wrong
 
 - The wheel doesn't start or looks wrong after the install: install Simagic's original again
