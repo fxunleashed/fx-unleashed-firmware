@@ -1,11 +1,11 @@
 <#
 .SYNOPSIS
-  Applies an FX Unleashed wheel app patch to YOUR OWN copy of Simagic's FX Pro wheel app and writes the result next to
+  Applies an FX Unleashed custom firmware patch to YOUR OWN copy of Simagic's FX Pro firmware and writes the result next to
   nothing else: it never changes SimPro's files and never overwrites the original.
 
 .DESCRIPTION
   A patch file holds only differences (see tools/make_patchfile.py), never Simagic's firmware. This script:
-    1. reads your copy of the original wheel app (SimPro keeps it in %LOCALAPPDATA%\SIMAGIC\Simpro3\firmware\wheel\fx_pro)
+    1. reads your copy of the original firmware (SimPro keeps it in %LOCALAPPDATA%\SIMAGIC\Simpro3\firmware\wheel\fx_pro)
     2. checks it is Simagic's original 1.3.11 (size and SHA-256). If it isn't, it stops.
     3. applies the differences in memory and checks the result against the checksum in the patch. If it differs, it stops.
     4. only then, and only if you passed -IUnderstandTheRisks, writes the patched file to a NEW place.
@@ -43,7 +43,7 @@ function ConvertFrom-Hex([string]$hex) {
 }
 
 if (-not (Test-Path -LiteralPath $Patch)) { Fail "the patch file isn't there: $Patch" }
-if (-not (Test-Path -LiteralPath $Stock)) { Fail "your copy of the original wheel app isn't there: $Stock`nInstall SimPro Manager 3 and let it download the FX Pro firmware, or pass -Stock with the file's path." }
+if (-not (Test-Path -LiteralPath $Stock)) { Fail "your copy of the original firmware isn't there: $Stock`nInstall SimPro Manager 3 and let it download the FX Pro firmware, or pass -Stock with the file's path." }
 
 $p = [System.IO.File]::ReadAllText($Patch) | ConvertFrom-Json
 if ($p.format -ne 1) { Fail "this patch file has a format ($($p.format)) this script doesn't know. Get a newer copy of the tools." }
@@ -55,13 +55,13 @@ Write-Host "Original: $Stock"
 [byte[]]$stockBytes = [System.IO.File]::ReadAllBytes($Stock)
 $stockHash = Get-Sha256 $stockBytes
 if ($stockBytes.Length -eq $p.result.size -and $stockHash -eq $p.result.sha256) {
-    Fail "this file already IS the patched wheel app (checksum $stockHash). Put Simagic's original back first (SimPro: reinstall the wheel app), then run this again." 3
+    Fail "this file already IS the custom firmware (checksum $stockHash). Put Simagic's original back first (copy your saved original into SimPro's folder), then run this again." 3
 }
 if ($stockBytes.Length -ne $p.source.size -or $stockHash -ne $p.source.sha256) {
-    Fail ("this is not Simagic's original wheel app 1.3.11.`n  expected: $($p.source.size) bytes, sha256 $($p.source.sha256)`n  found   : $($stockBytes.Length) bytes, sha256 $stockHash" +
+    Fail ("this is not Simagic's original firmware 1.3.11.`n  expected: $($p.source.size) bytes, sha256 $($p.source.sha256)`n  found   : $($stockBytes.Length) bytes, sha256 $stockHash" +
           "`nIt may be a different version, or already modified. Nothing was changed.") 2
 }
-Write-Host "Original checks out (Simagic's wheel app 1.3.11, sha256 $stockHash)." -ForegroundColor Green
+Write-Host "Original checks out (Simagic's firmware 1.3.11, sha256 $stockHash)." -ForegroundColor Green
 
 # 3. apply in memory, check the result
 [byte[]]$append = ConvertFrom-Hex $p.append
@@ -112,8 +112,8 @@ Write-Host "         sha256 $check (it matches the patch)"
 Write-Host ""
 Write-Host "Next (docs/install.md has the same with more care):"
 Write-Host "  1. Close SimPro. Keep a copy of the original: $Stock"
-Write-Host "  2. Copy the patched file over the one in SimPro's folder, KEEPING THE ORIGINAL FILE NAME."
-Write-Host "  3. Start SimPro, wheel on USB, and reinstall wheel app 1.3.11 on the wheel. Don't unplug anything until it says it's done."
+Write-Host "  2. Rename the written file to FXPro_App-V1.3.11.0-00000000.sfu and copy it over the one in SimPro's folder."
+Write-Host "  3. Start SimPro, wheel on the base: Settings > Update > Manual Firmware Flash, press Flash on the FX PRO row and select that file. Don't unplug anything until it says it's done."
 Write-Host "  4. Put the ORIGINAL back in SimPro's folder straight away and check its sha256 is $($p.source.sha256)."
-Write-Host "  5. In SimHub's FX Unleashed plugin, the Wheel tab should say `"patch build $($p.build)`"."
+Write-Host "  5. In SimHub's FX Unleashed plugin, the Wheel tab should show build $($p.build) for the custom firmware."
 exit 0
