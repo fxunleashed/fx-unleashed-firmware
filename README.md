@@ -13,13 +13,16 @@ program. It is at your own risk, and going back to Simagic's original is always 
 
 ## Get it
 
-| | |
-|---|---|
-| **[Releases](https://github.com/fxunleashed/fx-unleashed-firmware/releases): `FXUnleashed-wheelapp-build9.sfu`** | The wheel app, build 9 (includes builds 4 to 8): 96,272 bytes, SHA-256 `85e7110ba368495120c7e84d210c194d5e9eec9eaceb3f8f7c148f020fe0f458`. **It is Simagic's wheel app 1.3.11 with our changes**, so it is Simagic's software, not covered by our licence, and shared without Simagic's involvement. It may be removed at any time. |
-| `patches/build9.fxpatch.json` + `tools/apply-patch.ps1` | The same file, made on your PC from **your own copy** of Simagic's wheel app (the one in SimPro's firmware folder), byte for byte. For those who'd rather not download a modified vendor file. The patch holds only our changes: a few bytes of differences and about 1 KB of our own code. |
+**[Download the newest wheel app](https://github.com/fxunleashed/fx-unleashed-firmware/releases/latest)**: one small file,
+`FXUnleashed-wheelapp-build9.sfu` (build 9, which includes builds 4 to 8). Then follow the simple steps in
+[docs/install.md](docs/install.md), also at [fxunleashed.com/start](https://fxunleashed.com/start/#1-install-the-wheel-app).
+**It is Simagic's wheel app 1.3.11 with our changes**, so it is Simagic's software, not covered by our licence, and shared without
+Simagic's involvement. It may be removed at any time.
 
-Either way [docs/install.md](docs/install.md) walks through it: check the file, put it where SimPro looks for it, let SimPro
-install it, put Simagic's original back.
+| For the curious | |
+|---|---|
+| The file's fingerprint | 96,272 bytes, SHA-256 `85e7110ba368495120c7e84d210c194d5e9eec9eaceb3f8f7c148f020fe0f458` (also on each release and in `SHA256SUMS.txt`). |
+| `patches/build9.fxpatch.json` + `tools/apply-patch.ps1` | The same file, made on your PC from **your own copy** of Simagic's wheel app (the one in SimPro's firmware folder), byte for byte. For those who'd rather not download a modified vendor file. The patch holds only our changes: a few bytes of differences and about 1 KB of our own code. |
 
 ## What is here, and what is not
 
